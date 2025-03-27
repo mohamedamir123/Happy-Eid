@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy-Eid</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="content-box">
+        <h1>عيد سعيد🎉</h1>
+        <form>
+            <div class="input-group">
+                
+                <input type="text" id="name" name="name" placeholder="أكتب أسمك">
+            </div>
+            <button type = "submit">DONE</button>
+        </form>
+    </div>
+</div>    
+
+<div class="overlay" id="overlay"></div>
+<div class="eid-popup" id="eidPopup">
+    <h2>عيد سعيد🎉</h2>
+    <p id="greetingMessage"></p>
+    <button onclick="closeEidPopup()">تم</button>
+</div>
+
+
+
+<script>
+    function closeEidPopup() {
+            document.getElementById('eidPopup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const greetingMessage = document.getElementById('greetingMessage');
+            
+            if(name !== '') {
+                greetingMessage.textContent = ` كل عام وأنت بخير يا${name}!`;
+                document.getElementById('eidPopup').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            } else {
+                alert('الرجاء إدخال اسمك قبل الإرسال');
+            }
+        });
+</script>
+</body>
+</html>
